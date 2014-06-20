@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
     <title>Ocelloscope plotter</title>
 </head>
+<style>
+body {
+    font-family: 'Ubuntu Mono'
+}
+</style>
 <body>
-    <img src="http://localhost:8080/static/96.jpg" width="600px" /><br>
+    <img src="static/96.jpg" width="600px" /><br>
     Please specify what is in your wells: (For example A: USA300, B: USA300 Dcls, 1: TDZ 32 mg/l, 2: DCX 0.25 mg/l)
     <form action="/index" method="POST">
         <label>A:</label><input type="text" name="a"><br/>
@@ -27,7 +33,18 @@
         The wells that you want to be combined into one graph (ie triplicates) need to be separated by a comma "," while
         the wells resulting in different graphs need to be separated by a semicolon ";". For example if I want to combine
         wells A1, E1 and A7 and compare them to B1, F1 and F7, I would input the following: A1,E1,A7;B1,F1,F7.<br><br>
-        <label>Wells to combine:</label><input type="text" name="plot_this">
+        <label>Wells to combine:</label><input type="text" name="plot_this"><br><br>
+        Value to use for errorbars:
+        <select name="errorbars">
+            <option name="Standard deviation" value="SD">Standard deviation</option>
+            <option name="Standard error" value="SE">Standard error</option>
+        </select><br><br>
+        Measurement to use:
+        <select name="measurement">
+            <option name="BCA" value="BCA">Body corrected absorption</option>
+            <option name="SESA" value="SESA">SESA</option>
+            <option name="TA" value="TA">Total absorption</option>
+        </select><br>
         <input type="submit"/>
     </form>
 </body>

@@ -34,7 +34,7 @@ class index:
         form = web.input(a='', b='', c='', d='', e='', f='', g='', h='',\
                          one='', two='', three='', four='', five='', six='',\
                          seven='', eight='', nine='', ten='', eleven='', twelve='',\
-                         plot_this = '')
+                         plot_this = '', errorbars = '', measurement = '')
         a, b, c, d, e, f, g, h = (form.a, form.b, form.c, form.d, form.e, form.f, form.g, form.h)
         one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve = (form.one, form.two, form.three,\
             form.four, form.five, form.six, form.seven, form.eight, form.nine, form.ten, form.eleven, form.twelve)
@@ -45,8 +45,10 @@ class index:
                       '12': twelve}
         plot_this = plot_this.split(';')
         plot_this = [x.replace(' ', '').split(',') for x in plot_this]
+        errorbars = form.errorbars
+        measurement = form.measurement
 
-        makeTriplicates('csv_files/rawdata.csv', plot_this, conditions, strains)
+        make_triplicates('csv_files/rawdata.csv', plot_this, conditions, strains, errorbars = errorbars, measurement = measurement)
         raise web.seeother('/static/showme.png')
 
 
