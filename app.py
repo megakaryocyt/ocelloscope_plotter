@@ -46,9 +46,8 @@ class index:
         plot_this = plot_this.split(';')
         plot_this = [x.replace(' ', '').split(',') for x in plot_this]
         errorbars = form.errorbars
-        measurement = form.measurement
 
-        make_triplicates('csv_files/rawdata.csv', plot_this, conditions, strains, errorbars = errorbars, measurement = measurement)
+        make_triplicates('csv_files/rawdata.csv', plot_this, conditions, strains, errorbars = errorbars)
         raise web.seeother('/static/showme.png')
 
 
