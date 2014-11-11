@@ -1,6 +1,6 @@
 import web
 from web import form
-from backend import *
+from backend import make_triplicates
 
 render = web.template.render('templates/')
 
