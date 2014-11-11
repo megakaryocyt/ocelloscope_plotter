@@ -47,6 +47,11 @@ class well:
 
 
 def get_mean(arrays):
+    """
+    Takes an list with arrays of floats as argument.
+    Returns an array of mean values for each position in
+    the original arrays.
+    """
     total = array([0]*len(arrays[0])) + arrays[0]
     for n in range(1, len(arrays)):
         total += arrays[n]
@@ -141,4 +146,7 @@ def make_triplicates(\
         t = plate[wells[0]].get_measurements('x')
         plt.errorbar(t, means, yerr = err, label = lbl)
 
+    plt.xlabel('Time (hours)')
+    plt.ylabel('Bacterial growth (BCA)')
+    plt.legend(loc = 'best')
     plt.savefig('static/showme.png')
