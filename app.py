@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import web
 from web import form
 from backend import make_triplicates
